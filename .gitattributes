@@ -1,0 +1,4 @@
+* text=auto
+*.pdf binary
+*.png binary
+dental-chair-web/dist/viewer.js -text -diff

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#edf3f7">
+  <title>เก้าอี้ทันตกรรมภาคสนาม · 3D Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="dist/viewer.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell masthead">
+      <div class="brand"><span class="brand-icon" aria-hidden="true">✚</span> DENTAL / 3D EXPLORER</div>
+      <button id="export" class="button export" type="button" disabled>↓ <span>ดาวน์โหลด GLB</span></button>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="intro">
+      <h1>เก้าอี้ทันตกรรมภาคสนาม</h1>
+      <p>สำรวจการถอดประกอบและวัสดุของชุดรักษาแบบพกพา</p>
+    </div>
+    <div class="workspace">
+      <section class="stage" id="stage" aria-label="โมเดลเก้าอี้ทันตกรรมสามมิติ">
+        <canvas tabindex="0" aria-label="มุมมอง 3D ใช้ปุ่มลูกศรซ้ายขวาเพื่อหมุน และใช้บวกหรือลบเพื่อซูม"></canvas>
+        <div class="stage-top">
+          <div class="mode" role="group" aria-label="การจัดวางโมเดล">
+            <button id="assembled" type="button" aria-pressed="true">ประกอบ</button>
+            <button id="exploded" type="button" aria-pressed="false">แยกชิ้นส่วน</button>
+          </div>
+          <button id="reset" class="button reset" type="button" title="คืนมุมกล้องและประกอบทุกชิ้น">↺ คืนค่า</button>
+        </div>
+        <div id="markers"></div>
+        <div id="notice" role="status" hidden></div>
+        <noscript>เปิด JavaScript เพื่อใช้งานโมเดล 3D</noscript>
+        <div class="stage-bottom">
+          <div class="toolbar" role="group" aria-label="ควบคุมกล้อง">
+            <button id="left" type="button" title="หมุนซ้าย" aria-label="หมุนซ้าย">↶</button>
+            <button id="right" type="button" title="หมุนขวา" aria-label="หมุนขวา">↷</button>
+            <button id="zoom-out" type="button" title="ซูมออก" aria-label="ซูมออก">−</button>
+            <button id="zoom-in" type="button" title="ซูมเข้า" aria-label="ซูมเข้า">+</button>
+          </div>
+          <span class="hint">ลากเพื่อหมุน · เลื่อนหรือจีบนิ้วเพื่อซูม</span>
+        </div>
+      </section>
+      <aside class="panel" aria-labelledby="parts-title">
+        <h2 id="parts-title">ส่วนประกอบ <span>4 โมดูล</span></h2>
+        <div id="part-list" class="part-list" role="group" aria-label="เลือกโมดูล"></div>
+        <div id="inspection" class="inspection" aria-live="polite" aria-atomic="true">
+          <div id="part-meta" class="part-meta"></div>
+          <h3 id="part-title"></h3>
+          <p id="part-summary"></p>
+          <dl>
+            <dt>จุดเด่นและการใช้งาน</dt><dd id="part-feature"></dd>
+            <dt>วัสดุ</dt><dd id="part-material"></dd>
+          </dl>
+          <div class="part-actions">
+            <button id="detach" class="button primary" type="button">ถอดชิ้นนี้</button>
+            <button id="lamp-head" class="button" type="button" hidden>แยกหัว LED</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <footer>โมเดลแนวคิดอ้างอิงสไลด์โครงงาน · สัดส่วนจำลองและวัสดุตามข้อเสนอในแบบ</footer>
+  </main>
+</body>
+</html>
